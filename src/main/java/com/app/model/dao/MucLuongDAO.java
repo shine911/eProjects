@@ -21,7 +21,6 @@ public class MucLuongDAO {
     }
 
     public Mucluong getById(String id){
-        session.beginTransaction();
         String sql = "Select ml from " + Mucluong.class.getName() + " ml where ml.maMl = :maMl";
         Query<Mucluong> mucluongQuery = session.createQuery(sql);
         mucluongQuery.setParameter("maMl", id);
@@ -38,12 +37,13 @@ public class MucLuongDAO {
         return mucluong;
     }
 
-    public void update(String MaML, long Sotien){
+    public Mucluong update(String MaML, long Sotien){
         session.beginTransaction();
         Mucluong mucluong = session.get(Mucluong.class, MaML);
         mucluong.setSoTien(Sotien);
         session.update(mucluong);
         session.getTransaction().commit();
+        return mucluong;
     }
 
     public void delete(String MaML){

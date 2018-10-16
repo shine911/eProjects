@@ -16,6 +16,7 @@ public class MucLuongController {
     public List<Mucluong> mucLuongList(){
         return dao.getList();
     }
+
     //GetbyID
     @RequestMapping(value = "/mucluong/{MaML}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
@@ -24,9 +25,23 @@ public class MucLuongController {
     }
 
     //Add
-    @RequestMapping(value = "/mucluong", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/mucluong/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Mucluong add(@RequestBody Mucluong mucluong){
         return dao.insert(mucluong.getMaMl(),mucluong.getSoTien());
+    }
+
+    //Update
+    @RequestMapping(value = "/mucluong/update", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public Mucluong update(@RequestBody Mucluong mucluong){
+        return dao.update(mucluong.getMaMl(), mucluong.getSoTien());
+    }
+
+    //Delete
+    @RequestMapping(value = "/mucluong/delete/{emp_No}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public void delete(@PathVariable("emp_No") String emp_no){
+        dao.delete(emp_no);
     }
 }
