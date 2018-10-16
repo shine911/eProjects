@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 16, 2018 12:08:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.app.model.Quequan" table="QUEQUAN" schema="dbo" catalog="sql" optimistic-lock="version">
+        <id name="maT" >
+            <column name="MaT" />
+            <generator class="foreign">
+                <param name="property">tinh</param>
+            </generator>
+        </id>
+        <many-to-one name="huyen" class="com.app.model.Huyen" fetch="select">
+            <column name="MaH" not-null="true" />
+        </many-to-one>
+        <one-to-one name="tinh" class="com.app.model.Tinh" constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>

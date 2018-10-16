@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 16, 2018 12:08:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.app.model.Nhanvien" table="NHANVIEN" schema="dbo" catalog="sql" optimistic-lock="version">
+        <id name="maNv" >
+            <column name="MaNV" />
+            <generator class="foreign">
+                <param name="property">thannhan</param>
+            </generator>
+        </id>
+        <many-to-one name="chucvu" class="com.app.model.Chucvu" fetch="select">
+            <column name="MaCV" not-null="true" />
+        </many-to-one>
+        <many-to-one name="chuyenmon" class="com.app.model.Chuyenmon" fetch="select">
+            <column name="MaCM" not-null="true" />
+        </many-to-one>
+        <many-to-one name="huyen" class="com.app.model.Huyen" fetch="select">
+            <column name="MaH" not-null="true" />
+        </many-to-one>
+        <many-to-one name="phongban" class="com.app.model.Phongban" fetch="select">
+            <column name="MaPB" not-null="true" />
+        </many-to-one>
+        <one-to-one name="thannhan" class="com.app.model.Thannhan" constrained="true"></one-to-one>
+        <many-to-one name="tinh" class="com.app.model.Tinh" fetch="select">
+            <column name="MaT" not-null="true" />
+        </many-to-one>
+        <many-to-one name="trinhdohv" class="com.app.model.Trinhdohv" fetch="select">
+            <column name="MaTDHV" not-null="true" />
+        </many-to-one>
+        <many-to-one name="trinhdonn" class="com.app.model.Trinhdonn" fetch="select">
+            <column name="MaTDNN" not-null="true" />
+        </many-to-one>
+        <property name="hoTen" >
+            <column name="HoTen" not-null="true" />
+        </property>
+        <property name="phai" type="boolean">
+            <column name="Phai" not-null="true" />
+        </property>
+        <property name="ngSinh" type="timestamp">
+            <column name="NgSinh" length="23" not-null="true" />
+        </property>
+        <property name="dc" >
+            <column name="DC" not-null="true" />
+        </property>
+        <property name="dienThoai" type="int">
+            <column name="DienThoai" not-null="true" />
+        </property>
+        <property name="email" >
+            <column name="Email" not-null="true" />
+        </property>
+        <property name="password" >
+            <column name="Password" not-null="true" />
+        </property>
+        <set name="ktklNhanviens" table="KTKL_NHANVIEN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaNV" not-null="true" />
+            </key>
+            <one-to-many class="com.app.model.KtklNhanvien" />
+        </set>
+        <set name="phieuluongs" table="PHIEULUONG" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaNv" not-null="true" />
+            </key>
+            <one-to-many class="com.app.model.Phieuluong" />
+        </set>
+        <one-to-one name="nhanvienLilichct" class="com.app.model.NhanvienLilichct"></one-to-one>
+    </class>
+</hibernate-mapping>

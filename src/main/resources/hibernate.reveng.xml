@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="sql" match-schema="dbo"/>
+  <table-filter match-name="TRINHDOHV"/>
+  <table-filter match-name="CHUCVU"/>
+  <table-filter match-name="NHANVIEN_LILICHCT"/>
+  <table-filter match-name="CHUYENMON"/>
+  <table-filter match-name="PHONGBAN_CHUCVU"/>
+  <table-filter match-name="TINH"/>
+  <table-filter match-name="NHANVIEN"/>
+  <table-filter match-name="TRINHDONN"/>
+  <table-filter match-name="MUCLUONG"/>
+  <table-filter match-name="CHUYENMON_TRINHDOHV"/>
+  <table-filter match-name="PHIEULUONG"/>
+  <table-filter match-name="KTKL_NHANVIEN"/>
+  <table-filter match-name="LILICHCT"/>
+  <table-filter match-name="KTKL"/>
+  <table-filter match-name="HUYEN"/>
+  <table-filter match-name="QUEQUAN"/>
+  <table-filter match-name="PHONGBAN"/>
+  <table-filter match-name="THANNHAN"/>
+</hibernate-reverse-engineering>

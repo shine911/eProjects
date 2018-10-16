@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 16, 2018 12:08:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.app.model.PhongbanChucvu" table="PHONGBAN_CHUCVU" schema="dbo" catalog="sql" optimistic-lock="version">
+        <id name="maPb" >
+            <column name="MaPB" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="chucvu" class="com.app.model.Chucvu" fetch="select">
+            <column name="MaCV" not-null="true" />
+        </many-to-one>
+        <one-to-one name="phongban" class="com.app.model.Phongban"></one-to-one>
+    </class>
+</hibernate-mapping>

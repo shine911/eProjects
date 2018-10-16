@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 16, 2018 12:08:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.app.model.Chucvu" table="CHUCVU" schema="dbo" catalog="sql" optimistic-lock="version">
+        <id name="maCv" >
+            <column name="MaCV" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="mucluong" class="com.app.model.Mucluong" fetch="select">
+            <column name="MaML" not-null="true" />
+        </many-to-one>
+        <property name="tenCv" >
+            <column name="TenCV" not-null="true" />
+        </property>
+        <property name="baoHiem" type="long">
+            <column name="BaoHiem" precision="18" scale="0" not-null="true" />
+        </property>
+        <property name="troCap" type="long">
+            <column name="TroCap" precision="18" scale="0" not-null="true" />
+        </property>
+        <set name="phongbanChucvus" table="PHONGBAN_CHUCVU" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaCV" not-null="true" />
+            </key>
+            <one-to-many class="com.app.model.PhongbanChucvu" />
+        </set>
+        <set name="nhanviens" table="NHANVIEN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaCV" not-null="true" />
+            </key>
+            <one-to-many class="com.app.model.Nhanvien" />
+        </set>
+    </class>
+</hibernate-mapping>

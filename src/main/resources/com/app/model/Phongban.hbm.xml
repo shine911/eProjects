@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 16, 2018 12:08:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.app.model.Phongban" table="PHONGBAN" schema="dbo" catalog="sql" optimistic-lock="version">
+        <id name="maPb" >
+            <column name="MaPB" />
+            <generator class="foreign">
+                <param name="property">phongbanChucvu</param>
+            </generator>
+        </id>
+        <one-to-one name="phongbanChucvu" class="com.app.model.PhongbanChucvu" constrained="true"></one-to-one>
+        <property name="tenPb" >
+            <column name="TenPB" not-null="true" />
+        </property>
+        <property name="dc" >
+            <column name="DC" not-null="true" />
+        </property>
+        <set name="nhanviens" table="NHANVIEN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaPB" not-null="true" />
+            </key>
+            <one-to-many class="com.app.model.Nhanvien" />
+        </set>
+    </class>
+</hibernate-mapping>

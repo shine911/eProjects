@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=sql</property>
+    <property name="hibernate.connection.username">sa</property>
+    <property name="hibernate.connection.password">Thiennhi1412</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+    <mapping resource="com/app/model/Trinhdonn.hbm.xml"/>
+    <mapping resource="com/app/model/Mucluong.hbm.xml"/>
+    <mapping resource="com/app/model/ChuyenmonTrinhdohv.hbm.xml"/>
+    <mapping resource="com/app/model/Phieuluong.hbm.xml"/>
+    <mapping resource="com/app/model/Trinhdohv.hbm.xml"/>
+    <mapping resource="com/app/model/Ktkl.hbm.xml"/>
+    <mapping resource="com/app/model/NhanvienLilichct.hbm.xml"/>
+    <mapping resource="com/app/model/Thannhan.hbm.xml"/>
+    <mapping resource="com/app/model/Lilichct.hbm.xml"/>
+    <mapping resource="com/app/model/KtklNhanvien.hbm.xml"/>
+    <mapping resource="com/app/model/Phongban.hbm.xml"/>
+    <mapping resource="com/app/model/Chuyenmon.hbm.xml"/>
+    <mapping resource="com/app/model/Quequan.hbm.xml"/>
+    <mapping resource="com/app/model/Huyen.hbm.xml"/>
+    <mapping resource="com/app/model/Tinh.hbm.xml"/>
+    <mapping resource="com/app/model/PhongbanChucvu.hbm.xml"/>
+    <mapping resource="com/app/model/Chucvu.hbm.xml"/>
+    <mapping resource="com/app/model/Nhanvien.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

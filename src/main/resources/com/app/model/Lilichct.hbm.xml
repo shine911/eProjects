@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 16, 2018 12:08:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.app.model.Lilichct" table="LILICHCT" schema="dbo" catalog="sql" optimistic-lock="version">
+        <id name="maNoiCt" >
+            <column name="MaNoiCT" />
+            <generator class="assigned" />
+        </id>
+        <property name="tenNoiCt" >
+            <column name="TenNoiCT" not-null="true" />
+        </property>
+        <property name="dc" >
+            <column name="DC" not-null="true" />
+        </property>
+        <set name="nhanvienLilichcts" table="NHANVIEN_LILICHCT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaNoiCT" not-null="true" />
+            </key>
+            <one-to-many class="com.app.model.NhanvienLilichct" />
+        </set>
+    </class>
+</hibernate-mapping>

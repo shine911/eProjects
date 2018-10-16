@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 16, 2018 12:08:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.app.model.Ktkl" table="KTKL" schema="dbo" catalog="sql" optimistic-lock="version">
+        <id name="maKtkl" >
+            <column name="MaKTKL" />
+            <generator class="foreign">
+                <param name="property">ktklNhanvien</param>
+            </generator>
+        </id>
+        <one-to-one name="ktklNhanvien" class="com.app.model.KtklNhanvien" constrained="true"></one-to-one>
+        <property name="tenKtkl" >
+            <column name="TenKTKL" not-null="true" />
+        </property>
+        <property name="hinhThuc" >
+            <column name="HinhThuc" not-null="true" />
+        </property>
+        <property name="soTien" >
+            <column name="SoTien" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
